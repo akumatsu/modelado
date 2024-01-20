@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://modelos/MODELO GIRL.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/rotar.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+mesh = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.999469, 0.0110682, -0.030654, -0.0104346, 0.99973, 0.0207505, 0.0308754, -0.0204196, 0.999315, 0, 20.8193, 39.5757 )
+fov = 73.125
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 364.0
+margin_top = -586.0
+margin_right = 464.0
+margin_bottom = -554.0
+custom_styles/normal = SubResource( 1 )
+text = "volver"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
